@@ -89,11 +89,14 @@ public class MainController {
 
 	        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3]);
 	        
-	        if (!dto.comparePwd()) { // dto.comparePwd() == false 와 같은 표현
-	          System.out.println("입력하신 비번이 일치하지 않습니다.");
+	        if (!dto.comparePwd()) {
+	          System.out.println("입력하신 비밀번호가 일치하지 않습니다.");
 	          register();
             userInput = sc.nextLine();
             userInputs = userInput.split(" ");
+	        } else {
+	            MemberRegisterService regSrv = new MemberRegisterService();
+	            regSrv.regist(dto);
 	        }
 
 	    } else if (userInput.equalsIgnoreCase("Y")) {
@@ -101,7 +104,33 @@ public class MainController {
 	        System.out.println("아이디와 비밀번호를 입력해주세요.");
 	        userInput = sc.nextLine();
 	        userInputs = userInput.split(" ");
-	        menu();
+	        
+
+			MemberCheckingService chk = new MemberCheckingService();
+			
+			if (userInputs.length != 2) {
+				
+		    System.out.println("아이디와 비밀번호를 정확히 입력해주세요.");
+		    login();
+		    userInput = sc.nextLine();
+		    userInputs = userInput.split(" ");
+		    
+			}
+		
+			String id = userInputs[0];
+			String pwd = userInputs[1];
+		
+			if (chk.checking(id, pwd)) {
+		    System.out.println("로그인에 성공하였습니다.");
+		    
+		    menu();
+		    
+			} else {
+				
+		    System.out.println("아이디 혹은 비밀번호가 잘못되었습니다.");
+		    
+			}
+	        
 	        
 	        ArrayList<String> arrMenu = new ArrayList<String>();
 	        
