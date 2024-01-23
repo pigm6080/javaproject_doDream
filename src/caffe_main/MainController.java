@@ -44,7 +44,7 @@ public class MainController {
 	    System.out.println("     메뉴 1. 아메리카노  3,000원      ");
 	    System.out.println("     메뉴 2. 카페라떼   3,500원      ");
 	    System.out.println("     메뉴 3. 카푸치노   1,500원      ");
-	    System.out.println("     메뉴 4. 에스프레소  2,500원      ");
+	    System.out.println("  ß   메뉴 4. 에스프레소  2,500원      ");
 	    System.out.println("     메뉴 5. 카페모카   4,000원      ");
 	    System.out.println("     메뉴 6. 치즈케이크  5,000원      ");
 	    System.out.println("     메뉴 7. 초코케이크  4,500원      ");
@@ -75,59 +75,60 @@ public class MainController {
 	    String[] userInputs = userInput.split(" ");
 
 	    if (userInput.equalsIgnoreCase("N")) {
-	        register();
-	        System.out.println("회원가입을 진행하여 주세요.");
-	        userInput = sc.nextLine();
-	        userInputs = userInput.split(" ");
-
-	        if (userInputs.length != 4) {
-	            System.out.println("입력하신 정보가 형식에 맞지 않습니다.");
-	            register();
-	            userInput = sc.nextLine();
-	            userInputs = userInput.split(" ");
-	        }
-
-	        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3]);
-	        
-	        if (!dto.comparePwd()) {
-	          System.out.println("입력하신 비밀번호가 일치하지 않습니다.");
-	          register();
-            userInput = sc.nextLine();
-            userInputs = userInput.split(" ");
-	        } else {
-	            MemberRegisterService regSrv = new MemberRegisterService();
-	            regSrv.regist(dto);
-	        }
+			        register();
+			        System.out.println("회원가입을 진행하여 주세요.");
+			        userInput = sc.nextLine();
+			        userInputs = userInput.split(" ");
+		
+			        if (userInputs.length != 4) {
+			            System.out.println("입력하신 정보가 형식에 맞지 않습니다.");
+			            register();
+			            userInput = sc.nextLine();
+			            userInputs = userInput.split(" ");
+			        }
+		
+			        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3]);
+			        
+			        if (!dto.comparePwd()) {
+			          System.out.println("입력하신 비밀번호가 일치하지 않습니다.");
+			          register();
+		            userInput = sc.nextLine();
+		            userInputs = userInput.split(" ");
+			        } else {
+			            MemberRegisterService regSrv = new MemberRegisterService();
+			            regSrv.regist(dto);
+			        }
 
 	    } else if (userInput.equalsIgnoreCase("Y")) {
-	        login();
-	        System.out.println("아이디와 비밀번호를 입력해주세요.");
-	        userInput = sc.nextLine();
-	        userInputs = userInput.split(" ");
-	        
-
-			MemberCheckingService chk = new MemberCheckingService();
-			
-			if (userInputs.length != 2) {
+	    	
+			        login();
+			        System.out.println("아이디와 비밀번호를 입력해주세요.");
+			        userInput = sc.nextLine();
+			        userInputs = userInput.split(" ");
+			        
+		
+					MemberCheckingService chk = new MemberCheckingService();
+					
+					if (userInputs.length != 2) {
+						
+				    System.out.println("아이디와 비밀번호를 정확히 입력해주세요.");
+				    login();
+				    userInput = sc.nextLine();
+				    userInputs = userInput.split(" ");
+				    
+					}
 				
-		    System.out.println("아이디와 비밀번호를 정확히 입력해주세요.");
-		    login();
-		    userInput = sc.nextLine();
-		    userInputs = userInput.split(" ");
-		    
-			}
-		
-			String id = userInputs[0];
-			String pwd = userInputs[1];
-		
-			if (chk.checking(id, pwd)) {
-		    System.out.println("로그인에 성공하였습니다.");
-		    
-		    menu();
-		    
+					String id = userInputs[0];
+					String pwd = userInputs[1];
+				
+					if (chk.checking(id, pwd)) {
+				    System.out.println("로그인에 성공하였습니다.");
+				    
+				    menu();
+				    
 			} else {
 				
-		    System.out.println("아이디 혹은 비밀번호가 잘못되었습니다.");
+					System.out.println("아이디 혹은 비밀번호가 잘못되었습니다.");
 		    
 			}
 	        
