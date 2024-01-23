@@ -3,7 +3,6 @@ package caffe_main;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import member_ver1.RequestDTO;
 
 
 
@@ -88,7 +87,14 @@ public class MainController {
 	            userInputs = userInput.split(" ");
 	        }
 
-	        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
+	        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3]);
+	        
+	        if (!dto.comparePwd()) { // dto.comparePwd() == false 와 같은 표현
+	          System.out.println("입력하신 비번이 일치하지 않습니다.");
+	          register();
+            userInput = sc.nextLine();
+            userInputs = userInput.split(" ");
+	        }
 
 	    } else if (userInput.equalsIgnoreCase("Y")) {
 	        login();

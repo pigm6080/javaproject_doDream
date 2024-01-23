@@ -8,19 +8,18 @@ public class MemberRegisterService {
     this.dao = new CafeMemberDAO();
   }
 
-  public void regist(RequestDTO dto) {
+  public void regist(CafeMemberDTO dto) {
 
-    MemberVO vo = new MemberVO(dto.getName(), dto.getEmail(), dto.getPwd(), new Date());
-
-    // 기존에 등록된 회원인지 확인
-    if (dao.selectOne(dto.getEmail()) != null) {
-      System.out.println("이미 등록된 회원의 이메일과 중복됩니다.");
+    CafeMemberVO vo = new CafeMemberVO(dto.getId(), dto.getPwd());
+    
+    if (dao.selectOne(dto.getId()) != null) {
+      System.out.println("이미 등록된 아이디입니다.");
       return;
     }
 
-    dao.insert(vo);// MemberDAO 메소드를 통해 DB에 등록
+    dao.insert(vo);
     System.out.println("등록했습니다.");
 
-  }// end of regist
+  }
 
 }
