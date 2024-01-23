@@ -48,7 +48,7 @@ public class MainController {
 	    System.out.println("     메뉴 6. 치즈케이크  5,000원      ");
 	    System.out.println("     메뉴 7. 초코케이크  4,500원      ");
 	    System.out.println("************ Thank you **************");
-	    System.out.println("주문방법 - 메뉴번호 수량 엔터 > ok 입력");
+	    System.out.println("주문방법 - 메뉴번호 수량 엔터 > 전체 주문 완료 후 ok 입력");
 	}
 
 	public static void payment() {
@@ -101,6 +101,7 @@ public class MainController {
 	        }
 	        System.out.println("결제수단을 선택하세요.");
 	        payment();
+            userInput = sc.nextLine();
 	    }
 	}
 	// 나머지 로직 추가
