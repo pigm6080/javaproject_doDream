@@ -1,5 +1,6 @@
 package caffe_main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import member_ver1.RequestDTO;
@@ -80,7 +81,7 @@ public class MainController {
 	        userInput = sc.nextLine();
 	        userInputs = userInput.split(" ");
 
-	        if (userInputs.length != 3) {
+	        if (userInputs.length != 4) {
 	            System.out.println("입력하신 정보가 형식에 맞지 않습니다.");
 	            register();
 	            userInput = sc.nextLine();
@@ -95,9 +96,12 @@ public class MainController {
 	        userInput = sc.nextLine();
 	        userInputs = userInput.split(" ");
 	        menu();
-
+	        
+	        ArrayList<String> arrMenu = new ArrayList<String>();
+	        
 	        while (true) {
-	            userInput = sc.nextLine();
+	        	arrMenu.add(sc.nextLine());
+	            
 	            if (userInput.equalsIgnoreCase("ok")) {
 	                break;
 	            }
@@ -105,6 +109,8 @@ public class MainController {
 	        System.out.println("결제수단을 선택하세요.");
 	        payment();
             userInput = sc.nextLine();
+            System.out.println("주문이 완료되었습니다. 감사합니다.");
+            
 	    }
 	}
 	// 나머지 로직 추가
