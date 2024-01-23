@@ -62,6 +62,7 @@ public class MainController {
             	register();
             	userInput = sc.nextLine();
             	userInputs = userInput.split(" ");
+            	
 
             }
             
