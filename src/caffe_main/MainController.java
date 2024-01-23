@@ -1,5 +1,6 @@
 package caffe_main;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -92,9 +93,12 @@ public class MainController {
 	        userInput = sc.nextLine();
 	        userInputs = userInput.split(" ");
 	        menu();
-
+	        
+	        ArrayList<String> arrMenu = new ArrayList<String>();
+	        
 	        while (true) {
-	            userInput = sc.nextLine();
+	        	arrMenu.add(sc.nextLine());
+	            
 	            if (userInput.equalsIgnoreCase("ok")) {
 	                break;
 	            }
