@@ -1,8 +1,8 @@
-package cafeProject;
+package caffe_main;
 
 import java.util.Scanner;
 
-import member_ver1.RequestDTO;
+
 
 public class MainController {
 

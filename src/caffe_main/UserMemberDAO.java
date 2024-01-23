@@ -1,9 +1,9 @@
-package cafeProject;
+package caffe_main;
 
 import java.util.HashMap;
+
 import java.util.Map;
 
-import member_ver1.MemberVO;
 
 public class UserMemberDAO {
 
