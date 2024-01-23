@@ -2,6 +2,8 @@ package caffe_main;
 
 import java.util.Scanner;
 
+import member_ver1.RequestDTO;
+
 
 
 public class MainController {
@@ -34,7 +36,6 @@ public class MainController {
 	    System.out.println("로그인 - 아이디 비밀번호");
 	    System.out.println("도움말 - help");
 	    System.out.println("-------------------------------------");
-
 	}
 
 	public static void menu() {
@@ -85,6 +86,8 @@ public class MainController {
 	            userInput = sc.nextLine();
 	            userInputs = userInput.split(" ");
 	        }
+
+	        CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3], userInputs[4]);
 
 	    } else if (userInput.equalsIgnoreCase("Y")) {
 	        login();
