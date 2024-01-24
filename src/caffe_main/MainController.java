@@ -94,7 +94,8 @@ public class MainController {
                   regSrv.regist(dto);
               }
               
-      }} else if (userInput.equalsIgnoreCase("Y")) {
+      }
+              } else if (userInput.equalsIgnoreCase("Y")) {
         
               login();
               System.out.println("아이디와 비밀번호를 입력해주세요.");
