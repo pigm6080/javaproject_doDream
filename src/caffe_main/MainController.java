@@ -73,7 +73,7 @@ public class MainController {
 
       String[] userInputs = userInput.split(" ");
 
-     if (userInput.equalsIgnoreCase("N")) {s
+     if (userInput.equalsIgnoreCase("N")) {
               register();
               System.out.println("회원가입을 진행하여 주세요.");
               userInput = sc.nextLine();
