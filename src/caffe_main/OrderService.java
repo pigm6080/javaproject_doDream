@@ -3,31 +3,33 @@ package caffe_main;
 import java.util.ArrayList;
 
 public class OrderService {
-  private CafeMemberVO cafeMemberVO;
-  private ArrayList<menuOrderVO> orderList; 
+    private ArrayList<menuOrderVO> menuOrders;
+    private CafeMemberVO cafeMember;
 
-  
-  public OrderService(CafeMemberVO cafeMemberVO, ArrayList<menuOrderVO> orderList) {
-      this.cafeMemberVO = cafeMemberVO;
-      this.orderList = orderList;
-      
-  }
-  
-    public CafeMemberVO getCafeMemberVO() {
-      return cafeMemberVO;
-    }
-  
-    public void setCafeMemberVO(CafeMemberVO cafeMemberVO) {
-      this.cafeMemberVO = cafeMemberVO;
-    }
-  
-    public ArrayList<menuOrderVO> getOrderList() {
-      return orderList;
-    }
-  
-    public void setOrderList(ArrayList<menuOrderVO> orderList) {
-      this.orderList = orderList;
+    public OrderService() {
+        this.menuOrders = new ArrayList<>();
+        this.cafeMember = new CafeMemberVO();
     }
 
-  
+    public OrderService(ArrayList<menuOrderVO> menuOrders, CafeMemberVO cafeMember) {
+        this.menuOrders = menuOrders;
+        this.cafeMember = cafeMember;
+    }
+
+    public ArrayList<menuOrderVO> getMenuOrders() {
+        return menuOrders;
+    }
+
+    public void setMenuOrders(ArrayList<menuOrderVO> menuOrders) {
+        this.menuOrders = menuOrders;
+    }
+
+    public CafeMemberVO getCafeMember() {
+        return cafeMember;
+    }
+
+    public void setCafeMember(CafeMemberVO cafeMember) {
+        this.cafeMember = cafeMember;
+    }
+
 }

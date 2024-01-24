@@ -64,6 +64,9 @@ public class MainController {
     System.out.println(" 3. 삼성페이");
     }
 
+    private static ArrayList<OrderService> orderList = new ArrayList<>();
+    private static OrderViewService orderViewService = new OrderViewService();
+    
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     while(true) {
@@ -130,6 +133,10 @@ public class MainController {
             menuOrderService mos = new menuOrderService();
             mos.menuchose(arrMenu);
             
+            CafeMemberVO cafeMember = new CafeMemberVO(userInputs[0], userInputs[1]);
+            OrderService order = new OrderService(arrMenu, cafeMember);
+            orderList.add(order);
+            
             System.out.println("결제수단을 선택하세요.");
             payment();
             userInput = sc.nextLine();
@@ -171,7 +178,11 @@ public class MainController {
         }
         break;
     }
-      } else {
+      } else if (userInput.equalsIgnoreCase("4")) {
+        System.out.println("조회할 주문의 아이디를 입력해주세요.");
+        userInput = sc.nextLine();
+        orderViewService.viewOrder(orderList, userInput);
+      }{
         try {
           int userInputNumber = Integer.parseInt(userInput);
           if (userInputNumber < 1 || userInputNumber > 5) {
