@@ -1,7 +1,7 @@
 package caffe_main;
 
 public class MemberCheckingService {
-	
+   
     private CafeMemberDAO dao;
 
     public MemberCheckingService() {
@@ -9,7 +9,7 @@ public class MemberCheckingService {
     }
 
     public boolean checking(String id, String pwd) {
-    	
+       
         CafeMemberVO vo = dao.selectOne(id);
         
         if (vo != null && vo.getPwd().equals(pwd)) {

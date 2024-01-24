@@ -122,7 +122,28 @@ public class MainController {
       } else if (userInput.equalsIgnoreCase("3")) {
         
       } else if (userInput.equalsIgnoreCase("4")) {
-        System.out.println("주문조회");
+        ArrayList<menuOrderVO> arrMenu = new ArrayList<menuOrderVO>();
+        
+        while (true) {
+          String a = sc.nextLine();
+          if (a.equalsIgnoreCase("ok")) {
+            System.out.println("here");
+            break;
+          }
+          String[] a1 = a.split(" ");  
+          System.out.println(a1[0] + a1[1]);
+          menuOrderVO vo = new menuOrderVO(a1[0],a1[1]);
+          
+          arrMenu.add(vo);
+            
+        }
+        menuOrderService mos = new menuOrderService();
+        mos.munuchose(arrMenu);
+        
+        
+        System.out.println("주문이 완료되었습니다. 감사합니다.");
+        
+        mos.seleect();
       } else if (userInput.equalsIgnoreCase("5")) {
         System.out.println("프로그램을 종료합니다");
         break;
