@@ -94,7 +94,8 @@ public class MainController {
                   regSrv.regist(dto);
               }
               
-      } else if (userInput.equalsIgnoreCase("Y")) {
+      
+              } else if (userInput.equalsIgnoreCase("Y")) {
         
               login();
               System.out.println("아이디와 비밀번호를 입력해주세요.");
@@ -126,21 +127,28 @@ public class MainController {
       }
           
           
-          ArrayList<String> arrMenu = new ArrayList<String>();
+          ArrayList<menuOrderVO> arrMenu = new ArrayList<menuOrderVO>();
           
           while (true) {
             String a = sc.nextLine();
-            arrMenu.add(a);
-              
-              if (a.equalsIgnoreCase("ok")) {
-                  break;
-              }
-          }
-          System.out.println("결제수단을 선택하세요.");
-          payment();
-            userInput = sc.nextLine();
-            System.out.println("주문이 완료되었습니다. 감사합니다.");
+            if (a.equalsIgnoreCase("ok")) {
+            	System.out.println("here");
+            	break;
+            }
+            String[] a1 = a.split(" ");  
+            System.out.println(a1[0] + a1[1]);
+            menuOrderVO vo = new menuOrderVO(a1[0],a1[1]);
             
+            arrMenu.add(vo);
+              
+          }
+          menuOrderService mos = new menuOrderService();
+          mos.munuchose(arrMenu);
+          
+          
+          System.out.println("주문이 완료되었습니다. 감사합니다.");
+          
+          mos.seleect();
       }
   }
  }
