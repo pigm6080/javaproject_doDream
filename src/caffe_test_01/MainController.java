@@ -56,7 +56,7 @@ public class MainController {
 		    	System.out.println("다시입력하십시오 . ");
 		    	continue;
 		    }
-			
+			System.out.println("s");
 			
 		}
 		
