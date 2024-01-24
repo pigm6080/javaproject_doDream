@@ -61,10 +61,6 @@ public class MainController {
   }
 
   public static void main(String[] args) {
-      CafeMenuService cms = new CafeMenuService();
-      CafeSalesService css = new CafeSalesService();
-      UserMenuService ums = new UserMenuService();
-      UserPayService ups = new UserPayService();
 
       
       while(true) {
@@ -133,9 +129,10 @@ public class MainController {
           ArrayList<String> arrMenu = new ArrayList<String>();
           
           while (true) {
-            arrMenu.add(sc.nextLine());
+            String a = sc.nextLine();
+            arrMenu.add(a);
               
-              if (userInput.equalsIgnoreCase("ok")) {
+              if (a.equalsIgnoreCase("ok")) {
                   break;
               }
           }
