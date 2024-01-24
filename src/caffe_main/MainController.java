@@ -85,18 +85,14 @@ public class MainController {
     
               if (userInputs.length != 4) {
                   System.out.println("입력하신 정보가 형식에 맞지 않습니다.");
-                  register();
-                  userInput = sc.nextLine();
-                  userInputs = userInput.split(" ");
+                  continue;
               }
     
               CafeMemberDTO dto = new CafeMemberDTO(userInputs[1], userInputs[2], userInputs[3]);
               
               if (!dto.comparePwd()) {
-                System.out.println("입력하신 비밀번호가 일치하지 않습니다.");
-                register();
-                userInput = sc.nextLine();
-                userInputs = userInput.split(" ");
+                System.out.println("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+                continue;
               } else {
                   MemberRegisterService regSrv = new MemberRegisterService();
                   regSrv.regist(dto);
@@ -115,9 +111,7 @@ public class MainController {
           if (userInputs.length != 2) {
             
             System.out.println("아이디와 비밀번호를 정확히 입력해주세요.");
-            login();
-            userInput = sc.nextLine();
-            userInputs = userInput.split(" ");
+            continue;
             
           }
         
@@ -132,9 +126,7 @@ public class MainController {
       } else {
         
         System.out.println("아이디 혹은 비밀번호가 잘못되었습니다.");
-        login();
-        userInput = sc.nextLine();
-        userInputs = userInput.split(" ");
+        continue;
       }
           
           
