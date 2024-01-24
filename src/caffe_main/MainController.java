@@ -182,17 +182,12 @@ public class MainController {
         System.out.println("조회할 주문의 아이디를 입력해주세요.");
         userInput = sc.nextLine();
         orderViewService.viewOrder(orderList, userInput);
-      }{
-        try {
-          int userInputNumber = Integer.parseInt(userInput);
-          if (userInputNumber < 1 || userInputNumber > 5) {
-              System.out.println("1에서 5 사이의 숫자를 입력해주세요.");
+      } else if (userInput.equalsIgnoreCase("5")) {
+        System.out.println("프로그램을 종료합니다");
+        break;
           }
-          } catch (NumberFormatException e) {
-              System.out.println("숫자를 입력해주세요.");
-          }
-        }
+        }sc.close();
       } 
     }
   
-  }
+  
