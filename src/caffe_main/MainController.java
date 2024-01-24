@@ -79,7 +79,7 @@ public class MainController {
               userInput = sc.nextLine();
               userInputs = userInput.split(" ");
     
-              if (userInputs.length != 4) {
+              while(true) {if (userInputs.length != 4) {
                   System.out.println("입력하신 정보가 형식에 맞지 않습니다.");
                   continue;
               }
@@ -94,7 +94,7 @@ public class MainController {
                   regSrv.regist(dto);
               }
               
-      } else if (userInput.equalsIgnoreCase("Y")) {
+      }} else if (userInput.equalsIgnoreCase("Y")) {
         
               login();
               System.out.println("아이디와 비밀번호를 입력해주세요.");
