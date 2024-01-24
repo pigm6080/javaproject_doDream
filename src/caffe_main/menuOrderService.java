@@ -12,14 +12,14 @@ public class menuOrderService {
 		dao = new menuOrderDAO();
 	}
 	
-	public void munuchose(ArrayList<menuOrderVO> voArr) {
+	public void menuchose(ArrayList<menuOrderVO> voArr) {
 		
 		for(int i = 0 ; i < voArr.size();i++) {
 			dao.insert(voArr.get(i));
 		}
 		System.out.println("메뉴추가완료됐습니다");
 	}
-	public void seleect() {
+	public void select() {
 		
 		ArrayList<menuOrderVO> arr = dao.select();
 		

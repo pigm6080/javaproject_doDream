@@ -16,5 +16,8 @@ public class CafeMemberDAO {
     return memMap.get(id);
   }
 
+  public void update(CafeMemberVO vo) {
+    memMap.put(vo.getId(), vo);
+ }
 
 }
