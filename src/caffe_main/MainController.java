@@ -122,6 +122,7 @@ public class MainController {
       } else if (userInput.equalsIgnoreCase("3")) {
         
       } else if (userInput.equalsIgnoreCase("4")) {
+        menu();
         ArrayList<menuOrderVO> arrMenu = new ArrayList<menuOrderVO>();
         
         while (true) {
